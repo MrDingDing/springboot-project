@@ -20,4 +20,8 @@ public enum OrderStatusEnum implements CodeEnum{
         this.message = message;
     }
 
+    @Override
+    public Integer getCode() {
+        return null;
+    }
 }

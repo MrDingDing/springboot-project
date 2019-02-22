@@ -8,8 +8,11 @@ import com.imooc.exception.SellException;
 import com.imooc.form.OrderForm;
 import com.imooc.service.BuyerService;
 import com.imooc.service.OrderService;
+import com.imooc.utils.LoggerUtil;
 import com.imooc.utils.ResultVOUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -41,14 +44,15 @@ public class BuyerOrderController {
     @PostMapping("/create")
     public ResultVO<Map<String,String>> create(@Valid OrderForm orderForm ,
                                                BindingResult bindingResult){
+
         if(bindingResult.hasErrors()){
-            log.error("【创建订单】参数不正确，orderForm={}",orderForm);
+            LoggerUtil.error(this,"【创建订单】参数不正确，orderForm={}",orderForm);
             throw new SellException(ResultEnum.PARAM_ERROR.getCode(),
                     bindingResult.getFieldError().getDefaultMessage());
         }
         OrderDTO orderDTO= OrderForm2OrderDTOConverter.convert(orderForm);
         if(CollectionUtils.isEmpty(orderDTO.getOrderDetailList())){
-            log.error("【创建订单】购物车不能为空");
+            LoggerUtil.error(this,"【创建订单】购物车不能为空",orderForm);
             throw new SellException(ResultEnum.CART_EMPTY);
         }
         OrderDTO createResult=orderService.create(orderDTO);

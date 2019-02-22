@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @Slf4j
 public class LoggerTest {
 
-//    private final Logger logger= LoggerFactory.getLogger(LoggerTest.class);
+  private final Logger log= LoggerFactory.getLogger(LoggerTest.class);
     @Test
     public void test1(){
         String name="imooc";
