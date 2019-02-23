@@ -70,7 +70,7 @@ public class BuyerOrderController {
                                          @RequestParam(value = "page",defaultValue = "0") Integer page,
                                          @RequestParam(value = "size", defaultValue = "10") Integer size){
         if(StringUtils.isEmpty(openid)){
-            log.error("【查询订单列表】openid为空");
+            LoggerUtil.error(this,"【查询订单列表】openid为空",this);
             throw new SellException(ResultEnum.PARAM_ERROR);
         }
         PageRequest request=new PageRequest(page,size);
