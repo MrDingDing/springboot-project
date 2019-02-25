@@ -9,6 +9,14 @@ import lombok.Getter;
 @Getter
 public class SellException extends RuntimeException {
 
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
     private Integer code;
 
     public SellException(ResultEnum resultEnum) {

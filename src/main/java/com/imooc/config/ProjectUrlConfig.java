@@ -22,6 +22,30 @@ public class ProjectUrlConfig {
      */
     public String wechatOpenAuthorize;
 
+    public String getWechatMpAuthorize() {
+        return wechatMpAuthorize;
+    }
+
+    public void setWechatMpAuthorize(String wechatMpAuthorize) {
+        this.wechatMpAuthorize = wechatMpAuthorize;
+    }
+
+    public String getWechatOpenAuthorize() {
+        return wechatOpenAuthorize;
+    }
+
+    public void setWechatOpenAuthorize(String wechatOpenAuthorize) {
+        this.wechatOpenAuthorize = wechatOpenAuthorize;
+    }
+
+    public String getSell() {
+        return sell;
+    }
+
+    public void setSell(String sell) {
+        this.sell = sell;
+    }
+
     /**
      * 点餐系统
      */
