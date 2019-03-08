@@ -23,6 +23,10 @@ public class ResultVO<T> implements Serializable{
     /**具体内容**/
     private T data;
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
     public Integer getCode() {
         return code;
     }
